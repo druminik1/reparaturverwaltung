@@ -13,4 +13,11 @@ function getAllReparaturen(oCallback) {
   return stmt.all(oCallback);
 }
 
-export { getAllReparaturen }
+function loadById(iId, oCallback) {
+  const sql = 'SELECT * FROM REPARATUR WHERE ID = ?'
+  let stmt = db.prepare(sql)
+
+  return stmt.get([iId], oCallback)
+}
+
+export { getAllReparaturen, loadById }

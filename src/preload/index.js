@@ -1,10 +1,11 @@
 import { contextBridge } from 'electron'
 import { electronAPI } from '@electron-toolkit/preload'
-import { getAllReparaturen } from './model/reparaturManagement.js'
+import { getAllReparaturen, loadById } from './model/reparaturManagement.js'
 
 // Custom APIs for renderer
 const api = {
-  getReparaturen: getAllReparaturen
+  getReparaturen: getAllReparaturen,
+  getReparaturById: loadById
 }
 
 // Use `contextBridge` APIs to expose Electron APIs to
